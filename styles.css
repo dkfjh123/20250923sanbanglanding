@@ -20,6 +20,13 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+}
+
+/* 모든 이미지 반응형 기본 설정 */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Navigation */
@@ -718,6 +725,24 @@ section {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 40px;
+    }
+    
+    .nav-container {
+        padding: 0 40px;
+    }
+    
+    .hero-title {
+        font-size: 3.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+}
+
 @media (max-width: 1024px) {
     .container {
         padding: 0 30px;
@@ -741,6 +766,7 @@ section {
     
     .hero-title {
         font-size: 2.8rem;
+        line-height: 1.3;
     }
     
     .hero-subtitle {
@@ -772,6 +798,20 @@ section {
     .competitiveness-content {
         gap: 80px;
     }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .story-text h3,
+    .business-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .story-text p,
+    .business-text p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -793,6 +833,7 @@ section {
         padding-top: 50px;
         transition: left 0.3s ease;
         box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        z-index: 999;
     }
     
     .nav-menu.active {
@@ -811,16 +852,35 @@ section {
         transform: rotate(-45deg) translate(7px, -6px);
     }
     
+    .hero {
+        min-height: 500px;
+        padding: 100px 0 50px 0;
+    }
+    
+    .hero-content {
+        padding: 0 20px;
+    }
+    
     .hero-title {
         font-size: 2.2rem;
+        line-height: 1.3;
+        margin-bottom: 1.2rem;
     }
     
     .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+    }
+    
+    .cta-button {
+        padding: 15px 30px;
         font-size: 1.1rem;
     }
     
     .section-title {
         font-size: 2rem;
+        line-height: 1.3;
     }
     
     .business-card,
@@ -831,11 +891,14 @@ section {
     .tab-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
     
     .tab-button {
-        width: 200px;
+        width: 250px;
         text-align: center;
+        padding: 12px 25px;
+        font-size: 1rem;
     }
     
     .taste-grid,
@@ -872,60 +935,152 @@ section {
     .footer-info {
         text-align: center;
     }
+    
+    /* 이미지 최적화 */
+    .story-image img,
+    .business-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+    
+    /* 폼 최적화 */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px 15px;
+        font-size: 16px; /* iOS 줌 방지 */
+    }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 20px;
+        padding: 0 15px;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .hero {
+        min-height: 450px;
+        padding: 80px 0 40px 0;
+    }
+    
+    .hero-content {
+        padding: 0 15px;
     }
     
     .hero-title {
         font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
     
     .hero-subtitle {
         font-size: 1rem;
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
     }
     
     .cta-button {
-        padding: 15px 30px;
-        font-size: 1rem;
+        padding: 12px 25px;
+        font-size: 0.95rem;
+        border-radius: 25px;
     }
     
     section {
-        padding: 60px 0;
+        padding: 50px 0;
     }
     
     .section-header {
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
     
     .section-title {
         font-size: 1.6rem;
+        line-height: 1.3;
     }
     
     .business-card,
     .contact-form {
-        padding: 30px 20px;
+        padding: 25px 15px;
+    }
+    
+    .tab-button {
+        width: 200px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
     
     .taste-item,
     .indicator-item {
-        padding: 30px 20px;
+        padding: 25px 15px;
     }
     
     .indicator-number {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .taste-differences h3,
     .objective-indicators h3 {
         font-size: 1.3rem;
+        margin-bottom: 30px;
     }
     
     .story-image img,
     .business-image img {
         height: 250px;
+    }
+    
+    /* 네비게이션 최적화 */
+    .nav-logo img {
+        height: 50px;
+    }
+    
+    .nav-container {
+        height: 70px;
+    }
+    
+    .nav-menu {
+        top: 70px;
+        height: calc(100vh - 70px);
+    }
+    
+    /* 텍스트 크기 조정 */
+    .story-text h3,
+    .business-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .story-text p,
+    .business-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    /* 경쟁력 섹션 최적화 */
+    .taste-item h4,
+    .indicator-text h4 {
+        font-size: 1.1rem;
+    }
+    
+    .taste-item p,
+    .indicator-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    /* 푸터 최적화 */
+    .footer {
+        padding: 30px 0;
+    }
+    
+    .footer-logo img {
+        height: 35px;
+    }
+    
+    .footer-info p {
+        font-size: 0.9rem;
     }
 }
 
@@ -958,6 +1113,124 @@ section {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* 극소 화면 (320px 이하) 대응 */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .nav-container {
+        padding: 0 10px;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+    }
+    
+    .business-card,
+    .contact-form {
+        padding: 20px 10px;
+    }
+    
+    .tab-button {
+        width: 180px;
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+    
+    .nav-logo img {
+        height: 45px;
+    }
+}
+
+/* 가로 화면 대응 (랜드스케이프 모드) */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: 400px;
+        padding: 60px 0 30px 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .nav-container {
+        height: 60px;
+    }
+    
+    .nav-menu {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+}
+
+/* 터치 장치 최적화 */
+@media (pointer: coarse) {
+    .nav-link,
+    .tab-button,
+    .cta-button,
+    .submit-button,
+    .history-button {
+        min-height: 44px; /* 최소 터치 타겟 크기 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hamburger {
+        padding: 10px;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* 프린트 스타일 */
+@media print {
+    .navbar,
+    .hamburger,
+    .scroll-indicator,
+    .cta-button,
+    .submit-button {
+        display: none !important;
+    }
+    
+    .hero {
+        position: relative;
+        height: auto;
+        min-height: auto;
+        page-break-after: always;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
 }
 
 /* Smooth scrolling enhancement */
