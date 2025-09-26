@@ -929,6 +929,25 @@ section {
     }
 }
 
+/* History Button Styles */
+.history-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4491f, #ff6b3d);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(212, 73, 31, 0.3);
+}
+
+.history-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 73, 31, 0.4);
+    background: linear-gradient(135deg, #ff6b3d, #d4491f);
+}
+
 /* Utility Classes */
 .fade-in {
     opacity: 0;

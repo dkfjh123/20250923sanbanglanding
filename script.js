@@ -28,8 +28,15 @@ function initializeNavigation() {
     // Smooth scroll for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // 외부 링크인 경우 기본 동작 허용
+            if (href.includes('.html') || href.startsWith('http')) {
+                return; // 기본 링크 동작 허용
+            }
+            
             e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
+            const targetId = href.substring(1);
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
