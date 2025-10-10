@@ -111,7 +111,7 @@ function initializeScrollEffects() {
     }, observerOptions);
     
     // Observe elements for fade-in animation
-    const fadeElements = document.querySelectorAll('.story-item, .business-card, .taste-item, .indicator-item, .info-item');
+    const fadeElements = document.querySelectorAll('.story-item, .menu-item, .business-card, .taste-item, .indicator-item, .info-item');
     fadeElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
@@ -443,6 +443,7 @@ function updateMetaTags(sectionId) {
     const titles = {
         'hero': '산방식당 - 50년 제주의 전설, 당신의 비즈니스가 됩니다',
         'brand-story': '산방식당 브랜드 스토리 - 1971년부터 시작된 제주의 맛',
+        'menu': '산방식당 메뉴 - 55년 전통의 정통 제주밀면',
         'business': '산방식당 B2B 파트너십 - 성공적인 비즈니스 협력',
         'competitiveness': '산방식당의 경쟁력 - 검증된 품질과 신뢰',
         'contact': '산방식당 파트너십 문의 - 지금 바로 시작하세요'
