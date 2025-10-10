@@ -15,27 +15,65 @@
         /* History Page Specific Styles */
         .history-hero {
             position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            padding: 100px 20px;
+        }
+
+        .history-hero-content {
+            text-align: center;
+            color: white;
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        .history-hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            line-height: 1.2;
+        }
+
+        .history-hero-subtitle {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .history-hero-image {
+            max-width: 600px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .history-hero-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Video Section Styles */
+        .video-section {
+            position: relative;
             height: 80vh;
             min-height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: #000;
         }
 
-        .history-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-
-        .history-hero .intro-video {
+        .video-section .intro-video {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -46,7 +84,7 @@
             transform: translate(-50%, -50%);
             z-index: 0;
             object-fit: cover;
-            pointer-events: none; /* 사용자 상호작용 차단 */
+            pointer-events: none;
         }
 
         /* 비디오 컨트롤 완전히 숨기기 */
@@ -66,127 +104,85 @@
             display: none !important;
         }
 
-        .history-hero-content {
-            position: relative;
-            text-align: center;
-            color: white;
-            max-width: 800px;
-            padding: 0 20px;
-            z-index: 2;
-        }
-
-        .history-hero-title {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            line-height: 1.2;
-        }
-
-        .history-hero-subtitle {
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-            opacity: 0.95;
-        }
-
         .timeline {
-            position: relative;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: linear-gradient(135deg, #d4491f, #ff6b3d);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
-        }
-
         .timeline-item {
-            padding: 10px 40px;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 60px;
             position: relative;
-            background-color: inherit;
-            width: 50%;
-            margin-bottom: 50px;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background: linear-gradient(135deg, #d4491f, #ff6b3d);
-            border: 4px solid white;
-            top: 20px;
-            border-radius: 50%;
-            z-index: 1;
-            box-shadow: 0 0 10px rgba(212, 73, 31, 0.3);
-        }
-
-        .timeline-item.left {
-            left: 0;
-        }
-
-        .timeline-item.right {
-            left: 50%;
-        }
-
-        .timeline-item.right::after {
-            left: -10px;
         }
 
         .timeline-content {
-            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 40px;
             background: white;
-            position: relative;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
             border: 1px solid #e9ecef;
             transition: all 0.3s ease;
+            align-items: center;
         }
 
         .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .timeline-text {
+            order: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-text {
+            order: 2;
+        }
+
+        .timeline-item:nth-child(even) .timeline-image-container {
+            order: 1;
         }
 
         .timeline-year {
-            font-size: 1.8rem;
-            font-weight: 900;
+            font-size: 2.2rem;
+            font-weight: 700;
             color: #d4491f;
-            margin-bottom: 1rem;
-            font-family: 'Times New Roman', serif;
+            margin-bottom: 1.2rem;
+            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
         }
 
         .timeline-title {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
         }
 
         .timeline-description {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #666;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+            font-weight: 400;
+        }
+
+        .timeline-image-container {
+            order: 2;
         }
 
         .timeline-image {
             width: 100%;
-            border-radius: 10px;
-            margin-top: 15px;
-            object-fit: cover;
-            height: 200px;
+            border-radius: 15px;
+            object-fit: contain;
+            object-position: center;
+            height: 280px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: #f8f9fa;
         }
 
         .achievement-section {
@@ -252,34 +248,43 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .history-hero {
-                height: 70vh;
-                min-height: 400px;
+                min-height: 90vh;
+                padding: 80px 20px;
             }
             
             .history-hero-title {
-                font-size: 2.2rem;
+                font-size: 2.8rem;
             }
 
             .history-hero-subtitle {
-                font-size: 1.1rem;
-            }
-            .timeline::after {
-                left: 20px;
+                font-size: 1.3rem;
             }
 
-            .timeline-item {
-                width: 100%;
-                padding-left: 50px;
-                padding-right: 25px;
+            .history-hero-image {
+                max-width: 90%;
             }
 
-            .timeline-item.left,
-            .timeline-item.right {
-                left: 0%;
+            .video-section {
+                height: 60vh;
+                min-height: 400px;
+            }
+            .timeline-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px;
             }
 
-            .timeline-item::after {
-                left: 10px;
+            .timeline-text {
+                order: 1 !important;
+            }
+
+            .timeline-image-container {
+                order: 2 !important;
+            }
+
+            .timeline-image {
+                height: 220px;
+                object-fit: contain;
             }
 
             .achievement-grid {
@@ -290,28 +295,47 @@
 
         @media (max-width: 480px) {
             .history-hero {
-                height: 60vh;
-                min-height: 350px;
+                min-height: 80vh;
+                padding: 60px 15px;
             }
             
             .history-hero-title {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
             }
 
             .history-hero-subtitle {
-                font-size: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .history-hero-image {
+                max-width: 95%;
+            }
+
+            .video-section {
+                height: 50vh;
+                min-height: 300px;
             }
             
             .timeline-content {
-                padding: 20px;
+                padding: 25px;
+                gap: 25px;
             }
 
             .timeline-year {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
 
             .timeline-title {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+            }
+
+            .timeline-description {
+                font-size: 1rem;
+            }
+
+            .timeline-image {
+                height: 200px;
+                object-fit: contain;
             }
 
             .achievement-item {
@@ -345,81 +369,113 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Background Video -->
+    <!-- Hero Section -->
     <section class="history-hero">
-        <video class="intro-video" autoplay muted loop playsinline preload="auto" controls="false">
-            <source src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/jeju-sanbangsikdang-footage-1.mp4" type="video/mp4">
-            브라우저가 동영상을 지원하지 않습니다.
-        </video>
         <div class="history-hero-content">
             <h1 class="history-hero-title">산방식당이 걸어온 길</h1>
             <p class="history-hero-subtitle">
                 제주 남쪽 끝자락, 삶의 활기가 넘치던 항구 도시 모슬포.<br>
                 이곳의 작은 식당에서 산방식당의 역사는 시작되었습니다.<br>
                 관광지가 아닌, 도민들의 삶 가장 가까운 곳에서<br>
-                정직한 한 그릇으로 마음을 나누었습니다.
+                정직한 한 그릇으로 마음을 나누었습니다.<br><br>
+                50년이 넘는 세월 동안 변하지 않은 진정성과<br>
+                제주 밀면의 원조로서의 자부심을 지켜왔습니다.
             </p>
         </div>
+        <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/kji.png" alt="산방식당 역사" class="history-hero-image">
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <video class="intro-video" muted loop playsinline preload="none" controls="false">
+            <source src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/jeju-sanbangsikdang-footage-1.mp4" type="video/mp4">
+            브라우저가 동영상을 지원하지 않습니다.
+        </video>
     </section>
 
     <!-- Timeline Section -->
     <section id="timeline" style="padding: 100px 0;">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">50년 역사의 발자취</h2>
+                <h2 class="section-title">55년 산방식당이 걸어온길</h2>
             </div>
             
             <div class="timeline">
-                <div class="timeline-item left">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-year">1971</div>
-                        <h3 class="timeline-title">산방식당의 시작</h3>
-                        <p class="timeline-description">제주 서귀포시 모슬포에서 작은 식당으로 시작. 창업주가 부산에서 배운 밀면 레시피를 제주 특색에 맞게 변화시켜 '제주식 밀면'의 원조가 되다.</p>
-                        <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/moseulpo_sanbang.JPG" alt="초창기 산방식당" class="timeline-image">
+                        <div class="timeline-text">
+                            <div class="timeline-year">1971</div>
+                            <h3 class="timeline-title">산방식당의 시작</h3>
+                            <p class="timeline-description">제주 서귀포시 모슬포에서 작은 식당으로 시작. 창업주가 부산에서 배운 밀면 레시피를 제주 특색에 맞게 변화시켜 '제주식 밀면'의 원조가 되다.</p>
+                        </div>
+                        <div class="timeline-image-container">
+                            <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/moseulpo_sanbang.JPG" alt="초창기 산방식당" class="timeline-image">
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-item right">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-year">1980년대</div>
-                        <h3 class="timeline-title">제주 밀면의 명소로 부상</h3>
-                        <p class="timeline-description">입소문을 타며 제주도민들 사이에서 유명해지기 시작. 특유의 깔끔한 멸치육수와 쫄깃한 면발로 제주 밀면의 대명사가 되어감.</p>
-                        <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/milmyeon.jpg" alt="산방식당 밀면" class="timeline-image">
+                        <div class="timeline-text">
+                            <div class="timeline-year">1980년대</div>
+                            <h3 class="timeline-title">제주 밀면의 명소로 부상</h3>
+                            <p class="timeline-description">입소문을 타며 제주도민들 사이에서 유명해지기 시작. 특유의 깔끔한 멸치육수와 쫄깃한 면발로 제주 밀면의 대명사가 되어감.</p>
+                        </div>
+                        <div class="timeline-image-container">
+                            <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/milmyeon.jpg" alt="산방식당 밀면" class="timeline-image">
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-item left">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-year">1990년대</div>
-                        <h3 class="timeline-title">관광객들의 필수 코스</h3>
-                        <p class="timeline-description">제주를 방문하는 관광객들 사이에서 꼭 가봐야 할 맛집으로 소문나며, 전국적인 인지도 상승. 줄 서서 기다려야 하는 맛집으로 자리매김.</p>
-                        <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/julseogi-mobseulpo-2.gif" alt="줄서는 모습" class="timeline-image">
+                        <div class="timeline-text">
+                            <div class="timeline-year">1990년대</div>
+                            <h3 class="timeline-title">관광객들의 필수 코스</h3>
+                            <p class="timeline-description">제주를 방문하는 관광객들 사이에서 꼭 가봐야 할 맛집으로 소문나며, 전국적인 인지도 상승. 줄 서서 기다려야 하는 맛집으로 자리매김.</p>
+                        </div>
+                        <div class="timeline-image-container">
+                            <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/julseogi-mobseulpo-2.gif" alt="줄서는 모습" class="timeline-image">
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-item right">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-year">2000년대</div>
-                        <h3 class="timeline-title">2세대 경영 시작</h3>
-                        <p class="timeline-description">창업주의 아들들이 경영에 참여하며 전통의 맛을 이어가면서도 위생과 서비스 개선에 노력. 가족 경영의 진정성 유지.</p>
-                        <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/suok-image.jpg" alt="수육과 밀면" class="timeline-image">
+                        <div class="timeline-text">
+                            <div class="timeline-year">2000년대</div>
+                            <h3 class="timeline-title">2세대 경영 시작</h3>
+                            <p class="timeline-description">창업주의 아들들이 경영에 참여하며 전통의 맛을 이어가면서도 위생과 서비스 개선에 노력. 가족 경영의 진정성 유지.</p>
+                        </div>
+                        <div class="timeline-image-container">
+                            <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/suok-image.jpg" alt="수육과 밀면" class="timeline-image">
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-item left">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-year">2010년대</div>
-                        <h3 class="timeline-title">미디어 주목과 전국 확산</h3>
-                        <p class="timeline-description">각종 방송과 미디어에서 제주 대표 맛집으로 소개되며 전국적 명성 획득. SNS를 통해 젊은 세대에게도 인기 확산.</p>
+                        <div class="timeline-text">
+                            <div class="timeline-year">2010년대</div>
+                            <h3 class="timeline-title">미디어 주목과 전국 확산</h3>
+                            <p class="timeline-description">각종 방송과 미디어에서 제주 대표 맛집으로 소개되며 전국적 명성 획득. SNS를 통해 젊은 세대에게도 인기 확산.</p>
+                        </div>
+                        <div class="timeline-image-container">
+                            <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/kji.png" alt="미디어 소개" class="timeline-image">
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-item right">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-year">2020년대</div>
-                        <h3 class="timeline-title">B2B 사업 확장과 미래 준비</h3>
-                        <p class="timeline-description">50년 노하우를 바탕으로 B2B 파트너십 사업 시작. HACCP 인증 완료 및 밀키트 개발로 전국 어디서나 산방식당의 맛을 경험할 수 있게 됨.</p>
-                        <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/mealkit_frontview.png" alt="산방식당 밀키트" class="timeline-image">
+                        <div class="timeline-text">
+                            <div class="timeline-year">2020년대</div>
+                            <h3 class="timeline-title">B2B 사업 확장과 미래 준비</h3>
+                            <p class="timeline-description">55년 노하우를 바탕으로 B2B 파트너십 사업 시작. HACCP 인증 완료 및 밀키트 개발로 전국 어디서나 산방식당의 맛을 경험할 수 있게 됨.</p>
+                        </div>
+                        <div class="timeline-image-container">
+                            <img src="https://github.com/dkfjh123/20250923sanbanglanding/releases/download/v1.0-assets/mealkit_frontview.png" alt="산방식당 밀키트" class="timeline-image">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -430,7 +486,7 @@
     <section class="achievement-section" id="achievements">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">50년간 쌓아온 성과와 인정</h2>
+                <h2 class="section-title">55년간 쌓아온 성과와 인정</h2>
             </div>
             
             <div class="achievement-grid">
@@ -501,20 +557,33 @@
     <script>
         // History page specific JavaScript
         document.addEventListener('DOMContentLoaded', function() {
-            // 배경 비디오 강제 재생
+            // 비디오 섹션 Intersection Observer로 자연스러운 로딩
             const video = document.querySelector('.intro-video');
-            if (video) {
-                // 비디오 로드 완료 후 재생
-                video.addEventListener('loadeddata', function() {
-                    video.play().catch(function(error) {
-                        console.log('비디오 자동 재생이 차단되었습니다:', error);
+            const videoSection = document.querySelector('.video-section');
+            
+            if (video && videoSection) {
+                const videoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // 비디오가 화면에 보이기 시작하면 로드 및 재생
+                            if (video.readyState === 0) {
+                                video.load(); // 비디오 로드 시작
+                            }
+                            
+                            video.play().catch(function(error) {
+                                console.log('비디오 자동 재생이 차단되었습니다:', error);
+                            });
+                            
+                            // 한 번 재생되면 observer 해제
+                            videoObserver.unobserve(videoSection);
+                        }
                     });
+                }, {
+                    threshold: 0.3, // 30% 보일 때 시작
+                    rootMargin: '50px 0px' // 50px 여유를 두고 시작
                 });
 
-                // 페이지 로드 시 즉시 재생 시도
-                video.play().catch(function(error) {
-                    console.log('비디오 자동 재생이 차단되었습니다:', error);
-                });
+                videoObserver.observe(videoSection);
 
                 // 사용자 상호작용 후 재생 재시도
                 document.addEventListener('click', function() {
